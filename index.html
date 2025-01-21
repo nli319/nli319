@@ -2,14 +2,192 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="styles.css"
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Welcome to My Website!</h1>
-<p>This is a paragraph of text.</p>
-<script src="script.js"></script>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="Images/Nicole.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a> </li>
+                <li><a href="#about">About</a> </li>
+                <li><a href="#portfolio">Portfolio</a> </li>
+                <li><a href="#contact">Contact</a> </li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Computer Science at Georgia Tech</p>
+            <h1> Hi, I'm Nicole!</h1>
+        </div>
+    </div>
+</div>
+
+<!----------about------------>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="Images/noblur.png"
+                width="300px"
+                height="auto" 
+                style="border-radius: 150px;">
+            </div>
+            
+            <div class="about-col-2">
+                <h1 class="sub-title">About</h1>
+                <p>Hello! I am a second-year Georgia Tech student pursuing a Bachelor of Science degree in Computer Science with concentrations in Intelligence and Info Internetworks.
+
+                </p>
+
+                <div class="tab-titles">
+                    <!--<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>-->
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+
+                <!---<div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                        <li><span>Web Development</span><br>Designing Web/App interfaces</li>
+                        <li><span>App Development</span><br>Designing Web/App interfaces</li>
+                    </ul>
+                </div>-->
+
+                <div class="tab-contents active-tab" id="experience">
+                    <ul>
+                        <li><span>August 2024 - Present</span><br>Georgia Tech Vertically Integrated Projects <br>
+                        Software Developer and Researcher</br></li>
+                        <li><span>June 2022 - Present</span><br>Self-Employed <br>Private Tutor</br></li>
+                        <li><span>August 2023 - May 2024</span><br>Georgia Tech Department of Modern Languages 
+                        <br>Student Assistant II</br></li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>August 2023 - May 2027 (Expected)</span><br>Georgia Institute of Technology</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------portfolio------------>
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="Images/work-1.png">
+                <div class="layer">
+                    <h3>CheckIt Scheduler App</h3>
+                    <p>Create and track tasks!</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="Images/work-2.png">
+                <div class="layer">
+                    <h3>Spotify Wrapped Generator App</h3>
+                    <p>Explore your Spotify listening history!</p>
+                    <a href="https://sites.google.com/view/cs2340-project-two/home?authuser=0"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="">
+                <div class="layer">
+                    <h3><p</h3>
+                    <p></p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!----------contact------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i>nli319@gatech.edu</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/nicole-li3199/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="Images/NicoleLi_Resume.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname) {
+        for(tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxIL4l3FlDTI5OSNr4R8o_Rx9AodI5J3Ho1iHMLsD82HZCL751KZaYfOnZ9huN2nE4x/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function() {
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script src="https://kit.fontawesome.com/aa4ec742fb.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
-
